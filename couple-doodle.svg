@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180" width="200" height="180">
+  <!-- Simple couple doodle in hand-drawn style -->
+  
+  <!-- Girl figure (left) -->
+  <circle cx="70" cy="50" r="18" fill="none" stroke="#333" stroke-width="2"/>
+  <path d="M70 68 L70 110" stroke="#333" stroke-width="2" fill="none"/>
+  <path d="M70 75 L50 95" stroke="#333" stroke-width="2" fill="none"/>
+  <path d="M70 110 L55 145" stroke="#333" stroke-width="2" fill="none"/>
+  <path d="M70 110 L85 145" stroke="#333" stroke-width="2" fill="none"/>
+  <!-- Hair -->
+  <path d="M52 45 Q55 25 70 22 Q85 25 88 45" fill="none" stroke="#333" stroke-width="2"/>
+  <path d="M52 45 Q48 60 52 75" fill="none" stroke="#333" stroke-width="2"/>
+  <path d="M88 45 Q92 60 88 75" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- Eyes and smile -->
+  <circle cx="65" cy="48" r="2" fill="#333"/>
+  <circle cx="75" cy="48" r="2" fill="#333"/>
+  <path d="M65 56 Q70 62 75 56" fill="none" stroke="#333" stroke-width="1.5"/>
+  
+  <!-- Boy figure (right) -->
+  <circle cx="130" cy="45" r="18" fill="none" stroke="#333" stroke-width="2"/>
+  <path d="M130 63 L130 105" stroke="#333" stroke-width="2" fill="none"/>
+  <path d="M130 70 L150 90" stroke="#333" stroke-width="2" fill="none"/>
+  <path d="M130 105 L115 145" stroke="#333" stroke-width="2" fill="none"/>
+  <path d="M130 105 L145 145" stroke="#333" stroke-width="2" fill="none"/>
+  <!-- Hair -->
+  <path d="M112 40 Q115 25 130 22 Q145 25 148 40" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- Eyes and smile -->
+  <circle cx="125" cy="43" r="2" fill="#333"/>
+  <circle cx="135" cy="43" r="2" fill="#333"/>
+  <path d="M125 51 Q130 57 135 51" fill="none" stroke="#333" stroke-width="1.5"/>
+  
+  <!-- Holding hands -->
+  <path d="M70 75 Q85 85 100 82 Q115 79 130 70" stroke="#333" stroke-width="2" fill="none"/>
+  
+  <!-- Heart between them -->
+  <path d="M100 25 C95 15 82 15 82 28 C82 40 100 52 100 52 C100 52 118 40 118 28 C118 15 105 15 100 25" fill="#FF0000" stroke="#CC0000" stroke-width="1"/>
+</svg>

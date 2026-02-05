@@ -1,0 +1,516 @@
+/* ========================================
+   Valentine Website - CSS Styles
+   ======================================== */
+
+/* CSS Variables */
+:root {
+    --color-primary: #000000;
+    --color-bg: #f5f5f5;
+    --color-red: #FF0000;
+    --color-pink: #ff6b9d;
+    --font-mono: 'Courier New', Courier, monospace;
+    --transition-speed: 0.4s;
+}
+
+/* Twemoji (Apple-style emojis) */
+img.emoji {
+    height: 1em;
+    width: 1em;
+    margin: 0 0.05em 0 0.1em;
+    vertical-align: -0.1em;
+}
+
+/* Global Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Yomogi', var(--font-mono);
+    background: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--color-primary);
+    letter-spacing: 2px;
+}
+
+
+/* Stage System */
+.stage {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease;
+    z-index: 1;
+}
+
+.stage.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+}
+
+/* Typography */
+.step-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+}
+
+.step-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: normal;
+    letter-spacing: 4px;
+}
+
+/* Stage 0: Error Screen */
+.error-code {
+    font-size: 8rem;
+    color: var(--color-red);
+    font-weight: 300;
+    line-height: 1;
+    margin: 1rem 0;
+    font-family: var(--font-mono);
+}
+
+.error-message {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+/* Buttons */
+.btn {
+    font-family: 'Yomogi', var(--font-mono);
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+    border: 2px solid transparent;
+}
+
+.btn.primary {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.btn.primary:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn.secondary {
+    background: white;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn.secondary:hover {
+    background: #f0f0f0;
+}
+
+.btn.outline {
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn.outline:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Stage 1: Signature */
+.instruction {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.quote {
+    font-size: 1.8rem;
+    margin: 1.5rem 0;
+    background: linear-gradient(90deg, #ff69b4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sign-instruction {
+    font-size: 1rem;
+    color: #888;
+    margin: 1.5rem 0 1rem;
+}
+
+.signature-box {
+    width: 100%;
+    max-width: 450px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    border: 3px dashed #333;
+    border-radius: 12px;
+    background: white;
+    cursor: crosshair;
+    position: relative;
+}
+
+#signatureCanvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Stage 2: Tic Tac Toe */
+.turn-text {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+.ttt-board {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    position: relative;
+}
+
+.ttt-cell {
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.ttt-cell:hover:not(:disabled) {
+    background: rgba(255, 107, 157, 0.1);
+}
+
+.ttt-cell:disabled {
+    cursor: default;
+}
+
+/* Hand-drawn grid lines */
+.ttt-line {
+    position: absolute;
+    background: #333;
+    z-index: 1;
+}
+
+.ttt-line.horizontal {
+    height: 3px;
+    width: 100%;
+    left: 0;
+    transform: rotate(-1deg);
+}
+
+.ttt-line.horizontal.line1 {
+    top: 33%;
+}
+
+.ttt-line.horizontal.line2 {
+    top: 66%;
+    transform: rotate(0.5deg);
+}
+
+.ttt-line.vertical {
+    width: 3px;
+    height: 100%;
+    top: 0;
+    transform: rotate(1deg);
+}
+
+.ttt-line.vertical.line3 {
+    left: 33%;
+}
+
+.ttt-line.vertical.line4 {
+    left: 66%;
+    transform: rotate(-0.5deg);
+}
+
+/* Win line */
+.win-line {
+    position: absolute;
+    background: var(--color-red);
+    height: 4px;
+    transform-origin: left center;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.win-line.show {
+    opacity: 1;
+}
+
+.game-result {
+    font-size: 1.4rem;
+    color: var(--color-pink);
+    margin-bottom: 1.5rem;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Stage 3: Valentine Question */
+.waiting-text {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 2rem;
+}
+
+.valentine-question {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    background: linear-gradient(90deg, #ff69b4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.button-group .btn {
+    min-width: 120px;
+}
+
+#noBtn {
+    position: relative;
+    transition: all 0.1s ease;
+}
+
+/* Stage 4: Success */
+.success-container {
+    position: relative;
+    z-index: 2;
+}
+
+.success-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    letter-spacing: 4px;
+    font-weight: normal;
+}
+
+.couple-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.couple-image {
+    width: 200px;
+    max-width: 50%;
+    height: auto;
+}
+
+.love-text {
+    font-size: 1rem;
+    color: #333;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.love-text.left {
+    transform: rotate(180deg);
+}
+
+/* Floating Hearts */
+.floating-hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: floatUp 4s ease-in forwards;
+    opacity: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Wall of Hearts */
+#stage5 {
+    background: #f5e6d3;
+    /* Vintage beige */
+}
+
+.wall-container {
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.wall-title {
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    color: #5a4a3a;
+}
+
+.wall-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wall-image {
+    max-width: 80vw;
+    max-height: 60vh;
+    object-fit: contain;
+}
+
+/* Loading Screen */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #ddd;
+    border-top-color: var(--color-red);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-text {
+    font-size: 1.4rem;
+    color: #333;
+    margin: 0;
+}
+
+.loading-subtext {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .error-code {
+        font-size: 5rem;
+    }
+
+    .quote,
+    .valentine-question {
+        font-size: 1.4rem;
+    }
+
+    .ttt-board {
+        width: 220px;
+        height: 220px;
+    }
+
+    .ttt-cell {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.8rem;
+        font-size: 0.9rem;
+    }
+}
