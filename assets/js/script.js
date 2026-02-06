@@ -37,7 +37,7 @@ let wallOfHeartsAudio = null;
 
 function playWallOfHeartsMusic() {
     if (!wallOfHeartsAudio) {
-        wallOfHeartsAudio = new Audio('Unko Sweater Teaser - Kobid Bazra - @artmandu @SujanChapagain-[AudioTrimmer.com].mp3');
+        wallOfHeartsAudio = new Audio('assets/audio/background-music.mp3');
         wallOfHeartsAudio.loop = true;
         wallOfHeartsAudio.volume = 0.3; // Sweet background volume (30%)
     }
