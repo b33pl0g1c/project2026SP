@@ -442,6 +442,13 @@ body {
     color: #5a4a3a;
 }
 
+.zoom-hint {
+    font-size: 0.95rem;
+    color: #8a7a6a;
+    margin: 0;
+    font-style: italic;
+}
+
 .wall-image-container {
     display: flex;
     justify-content: center;

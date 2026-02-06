@@ -39,9 +39,29 @@ function playWallOfHeartsMusic() {
     if (!wallOfHeartsAudio) {
         wallOfHeartsAudio = new Audio('Unko Sweater Teaser - Kobid Bazra - @artmandu @SujanChapagain-[AudioTrimmer.com].mp3');
         wallOfHeartsAudio.loop = true;
+        wallOfHeartsAudio.volume = 0.3; // Sweet background volume (30%)
     }
     wallOfHeartsAudio.currentTime = 0;
     wallOfHeartsAudio.play().catch(err => console.log('Audio playback failed:', err));
+}
+
+// Wall of Hearts Loading Screen
+function showWallLoading() {
+    // Hide all stages
+    document.querySelectorAll('.stage').forEach(stage => {
+        stage.classList.remove('active');
+    });
+
+    // Show loading stage
+    const loadingStage = document.getElementById('stageWallLoading');
+    if (loadingStage) {
+        loadingStage.classList.add('active');
+
+        // After 2 seconds, go to Wall of Hearts
+        setTimeout(() => {
+            nextStage(5);
+        }, 2000);
+    }
 }
 
 function stopWallOfHeartsMusic() {

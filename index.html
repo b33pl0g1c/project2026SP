@@ -97,15 +97,25 @@
                 <img src="couple-doodle.svg" alt="Couple Doodle" class="couple-image">
                 <span class="love-text right">Long time &lt;3</span>
             </div>
-            <button class="btn primary" onclick="nextStage(5)">Wall of Hearts 💕</button>
+            <button class="btn primary" onclick="showWallLoading()">Wall of Hearts 💕</button>
         </div>
         <div class="floating-hearts" id="floatingHearts"></div>
+    </div>
+
+    <!-- Stage 5 Loading: Wall of Hearts Loading -->
+    <div id="stageWallLoading" class="stage">
+        <div class="container loading-container">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Loading the Wall of Hearts...</p>
+            <p class="loading-subtext">Compiling all the good memories with the beautiful lady</p>
+        </div>
     </div>
 
     <!-- Stage 5: Wall of Hearts -->
     <div id="stage5" class="stage">
         <div class="container wall-container">
             <h2 class="wall-title">Wall of Hearts</h2>
+            <p class="zoom-hint">Feel free to zoom in 🔍</p>
             <div class="wall-image-container">
                 <img src="mr-confused.svg" alt="Mr Confused" class="wall-image">
             </div>
